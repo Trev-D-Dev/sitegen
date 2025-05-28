@@ -34,3 +34,4 @@ class TestExtractMarkdown(unittest.TestCase):
         text = f"This is text with a link [{link_text1}]({link1}) and [{link_text2}]({link2})"
         matches = extract_markdown_links(text)
         self.assertListEqual([(link_text1, link1), (link_text2, link2)], matches)
+        

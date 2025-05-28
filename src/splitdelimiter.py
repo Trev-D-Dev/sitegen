@@ -21,6 +21,10 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
         node_text_type = node.text_type
         node_text = node.text
         delim_len = len(delimiter)
+        
+        test_node_text = node_text.split(delimiter)
+        print(test_node_text)
+        
         if(not delimiter in node_text):
             raise ValueError("delimiter not present in text")
         
