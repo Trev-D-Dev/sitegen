@@ -13,3 +13,4 @@ class TestTextToTextNodes(unittest.TestCase):
         text = f"My **favorite** website is definitely [{link_text}]({link1}). I have learned _soooo_ much from their courses, such as `python`! I highly recommend it, ![{alt_text}]({link2})"
         
         new_nodes = text_to_text_nodes(text)
+        print(new_nodes)
