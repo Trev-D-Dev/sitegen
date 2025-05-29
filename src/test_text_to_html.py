@@ -10,7 +10,6 @@ class TestTextNodeToHTMLNode(unittest.TestCase):
         html_node = text_node_to_html_node(node)
         self.assertEqual(html_node.tag, None)
         self.assertEqual(html_node.value, "This is a text node")
-        print(html_node)
 
     def test_bold(self):
         node = TextNode("This is a bold text node", "bold")

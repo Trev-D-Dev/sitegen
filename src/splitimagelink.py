@@ -37,20 +37,31 @@ def split_nodes(new_nodes, reg_match, node_text, text_type):
     start_index = 0
     current_index = 0
     
-    print(node_text)
-    
     for tuple in reg_match:
         text = tuple[0]
         link = tuple[1]
         
-        link_substring = f"{text} {link}"
-        length = len(link_substring)
+        if(text_type == "link"):
+            link_substring = f"[{text}]({link})"
+        elif(text_type == "image"):
+            link_substring = f"![{text}]({link})"
+        
         
         current_index = node_text.find(link_substring)
         
         if(current_index != start_index):
             substring = node_text[start_index:current_index]
             new_nodes.append(TextNode(substring, "text"))
+            
+            
+        # change order of finding index, then sanitize the strings so that way the wrong stuff isn't removed
+        if(text_type == "link"):
+            link_substring
+        elif(text_type == "image"):
+            pass
+        
+        
+        length = len(link_substring)
             
         new_nodes.append(TextNode(text, text_type, link))
         

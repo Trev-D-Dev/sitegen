@@ -6,16 +6,13 @@ class TestHTMLNode(unittest.TestCase):
     def test_props(self):
         node = HTMLNode("a", "Google", None, { "href": "https://google.com", "target": "_blank", })
         self.assertEqual(node.props_to_html(), ' href="https://google.com" target="_blank"')
-        print(node.props_to_html())
 
     def test_print(self):
         node = HTMLNode("div", "Bing", None, { "x": "gonna give it to ya" })
-        print(node)
         
     def test_print_child(self):
         c_node = HTMLNode("h1", "Title", None, { "class:" "mainTitle" })
         p_node = HTMLNode("div", None, c_node, { "class": "mainDiv" })
-        print(p_node)
 
 if __name__ == "__main__":
     unittest.main()

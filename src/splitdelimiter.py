@@ -22,21 +22,22 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
         node_text = node.text
         delim_len = len(delimiter)
         
-        test_node_text = node_text.split(delimiter)
-        print(test_node_text)
-        
         if(not delimiter in node_text):
-            raise ValueError("delimiter not present in text")
-        
-        first_index = node_text.index(delimiter)
-        start_text = node_text[:first_index]
-        middle_end_text = node_text[first_index+delim_len:]
-        
-        second_index = middle_end_text.index(delimiter)
-        middle_text = middle_end_text[:second_index]
-        end_text = middle_end_text[second_index+delim_len:]
+            # raise ValueError("delimiter not present in text")
+            new_nodes.append(node)
+            continue
+        else:
+            first_index = node_text.index(delimiter)
+            start_text = node_text[:first_index]
+            middle_end_text = node_text[first_index+delim_len:]
+            
+            second_index = middle_end_text.index(delimiter)
+            middle_text = middle_end_text[:second_index]
+            end_text = middle_end_text[second_index+delim_len:]
 
-        new_nodes.append(TextNode(start_text, node_text_type))
-        new_nodes.append(TextNode(middle_text, text_type))
-        new_nodes.append(TextNode(end_text, node_text_type))
+            new_nodes.append(TextNode(start_text, node_text_type))
+            new_nodes.append(TextNode(middle_text, text_type))
+            new_nodes.append(TextNode(end_text, node_text_type))
+        
+    return new_nodes
         
