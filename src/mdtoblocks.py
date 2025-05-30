@@ -1,15 +1,12 @@
 
 def markdown_to_blocks(markdown):
     md_splits = markdown.split("\n\n")
-    # print(md_splits)
 
-    new_lines = []
+    blocks = []
 
     for line in md_splits:
-        # print("Line: " + line)
-        length = len(line)
-        start_sub = line[:2]
-        end_sub = line[(length-3):]
-        new_lines.append(line)
+        line = line.strip("\n")
+        line = line.strip()
+        blocks.append(line)
     
-    return new_lines
+    return blocks
